@@ -1,0 +1,21 @@
+{
+  "name": "junction2015",
+  "version": "0.0.0",
+  "homepage": "https://github.com/devjv/junction2015",
+  "authors": [
+    "oukka <annika.oukka@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
