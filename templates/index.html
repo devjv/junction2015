@@ -3,9 +3,9 @@
 <head>
 	<title>Flexifly</title>
 	<base href="/">
-	{% assets "js_all" %}
-	<script type="text/javascript" src="{{ ASSET_URL }}"></script>
-	{% endassets %}
+	<script src="http://code.angularjs.org/1.4.7/angular.js"></script>
+	<script src="http://code.angularjs.org/1.4.7/angular-route.js"></script>
+	<script src="http://code.angularjs.org/1.4.7/angular-animate.js"></script>
 
 	<script type="text/javascript" src="static/js/app.js"></script>
 	<script type="text/javascript" src="static/js/controllers/login.controller.js"></script>
@@ -22,8 +22,14 @@
 </head>
 <body>
 	<div class="container">
-		<header class="text-center"><img src="static/img/flexifly_logo.png" width="160r" alt="Flexifly"></header>
-		<div ng-view></div>
+		<header class="text-center">
+			<a href="/">
+				<img src="static/img/flexifly_logo.png" width="160" alt="Flexifly">
+			</a>
+		</header>
+		<div class="animation-container">
+			<div ng-view class="animation"></div>
+		</div>
 	</div>
 </body>
 </html>
