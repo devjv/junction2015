@@ -1,6 +1,6 @@
 var app = angular.module('myApp', ['ngRoute']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'static/login.html',
@@ -24,4 +24,9 @@ app.config(function($routeProvider) {
     templateUrl: 'static/createorder.html',
     controller: 'CreateOrderController'
   })
+  .otherwise({
+    template: 'page not found'
+  });
+
+  $locationProvider.html5Mode(true);
 });
