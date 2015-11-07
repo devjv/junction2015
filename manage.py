@@ -12,7 +12,7 @@ def create_app():
 
 
 manager = Manager(create_app)
-manager.add_command("runserver", Server(host='localhost', port=port))
+manager.add_command("runserver", Server(port=port))
 
 
 @manager.shell
