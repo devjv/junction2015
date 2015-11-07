@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, make_response, render_template
 from app import Airport, Flight
 from db import db
 
-api = Blueprint('api', __name__)
+api = Blueprint('api', __name__, url_prefix='/api')
 
 
 @api.route('/')
