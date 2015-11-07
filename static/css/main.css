@@ -3,21 +3,15 @@ html {
 }
 
 body {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcd3fe+0,90b7fe+45,5d96ff+100 */
-
-    background: -webkit-linear-gradient(#5c6bc0, #9fa8da); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#5c6bc0, #9fa8da); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#5c6bc0, #9fa8da); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#5c6bc0, #9fa8da); /* Standard syntax */
-
+	background: url('/static/img/background.jpg');
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     }
 
 .container {
-    margin-top: 5em;
-    width: 60em;
+    margin-top: 3em;
+    max-width: 60em;
 }
 
 header {
