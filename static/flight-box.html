@@ -1,0 +1,10 @@
+<div class="panel panel-primary">
+	<div class="panel-body">
+		<h4>
+			Flight {{ flight.code }}
+			<small>from <strong>{{ flight.departure }}</strong> to <strong>{{ flight.destination }}</strong></small>
+			<button ng-show="buttonAction" ng-click="buttonAction()" class="btn btn-success btn-sm pull-right">Trade</button>
+		</h4>
+		<p><i class="fa fa-calendar"></i> {{ flight.date }} &bull; <i class="fa fa-clock-o"></i> {{ flight.time }}</p>
+	</div>
+</div>
