@@ -3,9 +3,10 @@ from app import Airport, Flight
 from db import db
 
 api = Blueprint('api', __name__, url_prefix='/api')
+others = Blueprint('others', __name__)
 
 
-@api.route('/')
+@others.route('/')
 def index():
     return render_template('index.html')
     return make_response(open('templates/index.html').read())
