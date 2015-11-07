@@ -1,1 +1,13 @@
-flights
+<div ng-repeat="flight in allorders.flights">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{ flight.destination }}</div>
+        <div class="panel-body">
+          <p>{{ flight.date }}</p>
+          <p>{{ flight.time}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

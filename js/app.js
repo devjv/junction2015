@@ -12,11 +12,13 @@ app.config(function($routeProvider) {
     })
     .when('/flights', {
         templateUrl : 'templates/flights.html',
-        controller  : 'AllOrdersController'
+        controller  : 'AllOrdersController',
+        controllerAs : 'allorders'
     })
     .when('/orders', {
         templateUrl : 'templates/orders.html',
-        controller  : 'UserOrdersController'
+        controller  : 'UserOrdersController',
+        controllerAs : 'orders'
     })
     .when('/createorder', {
         templateUrl : 'templates/createorder.html',
