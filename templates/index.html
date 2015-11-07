@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-	<title>FlightTraders</title>
-
+	<title>Flexifly</title>
+	<base href="/">
 	{% assets "js_all" %}
 	<script type="text/javascript" src="{{ ASSET_URL }}"></script>
 	{% endassets %}
@@ -19,12 +19,9 @@
 </head>
 </head>
 <body>
-	
 	<div class="container">
-		<header><i class="fa fa-plane"></i> FlightTraders</header>
+		<header><i class="fa fa-plane"></i> Flexifly</header>
 		<div ng-view></div>
 	</div>
-
-
 </body>
 </html>
