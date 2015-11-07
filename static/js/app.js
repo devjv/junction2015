@@ -2,27 +2,21 @@ var app = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
-  .when('/', {
-    templateUrl: 'static/login.html',
-    controller: 'LoginController'
-  })
   .when('/login', {
     templateUrl: 'static/login.html',
-    controller: 'LoginController'
+    controller: 'LoginCtrl'
   })
-  .when('/flights', {
-    templateUrl: 'static/flights.html',
-    controller: 'AllOrdersController',
-    controllerAs: 'allorders'
+  .when('/me', {
+    templateUrl: 'static/my-offers.html',
+    controller: 'MyOffersCtrl'
   })
-  .when('/orders', {
-    templateUrl: 'static/orders.html',
-    controller: 'UserOrdersController',
-    controllerAs: 'orders'
+  .when('/add', {
+    templateUrl: 'static/add-offers.html',
+    controller: 'AddOffersCtrl'
   })
-  .when('/createorder', {
-    templateUrl: 'static/createorder.html',
-    controller: 'CreateOrderController'
+  .when('/find', {
+    templateUrl: 'static/find-offers.html',
+    controller: 'FindOffersCtrl'
   })
   .otherwise({
     template: 'page not found'
