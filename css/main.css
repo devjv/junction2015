@@ -1,5 +1,0 @@
-div.center {
-	@apply(--layout-horizontal);
-	@apply(--layout-center-justified);
-}
-
