@@ -5,6 +5,8 @@ Yeah
 
 Install:
 
- 1. pip install -r requirements-dev.txt
- 2. python manage.py runserver
+ 1. mkvirtualenv junction
+ 2. workon junction
+ 3. pip install -r requirements-dev.txt
+ 4. python manage.py runserver
 
