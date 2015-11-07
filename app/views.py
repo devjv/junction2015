@@ -3,7 +3,6 @@ from app import Airport, Flight
 from db import db
 
 api = Blueprint('api', __name__, url_prefix='/api')
-errors = Blueprint('errors', __name__)
 others = Blueprint('others', __name__)
 
 
