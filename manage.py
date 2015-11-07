@@ -1,7 +1,10 @@
 from flask import current_app
-
+import os
 from flask.ext.script import Manager, Server
 
+port = 5000
+if 'PORT' in os.environ:
+    port = os.environ['PORT']
 
 def create_app():
     from application import Application
@@ -9,7 +12,7 @@ def create_app():
 
 
 manager = Manager(create_app)
-manager.add_command("runserver", Server(host='localhost'))
+manager.add_command("runserver", Server(host='localhost', port=port))
 
 
 @manager.shell
