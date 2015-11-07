@@ -1,0 +1,14 @@
+body {
+	background: url(../img/background.jpg) no-repeat #F8FCFD;
+}
+
+.container {
+	margin-top: 5em;
+	width: 60em;
+}
+
+header {
+	border-bottom: 1px solid #eee;
+	font-size: 2em;
+	margin-bottom: 1em;
+}
