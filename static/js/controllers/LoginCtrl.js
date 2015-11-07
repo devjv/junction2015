@@ -1,4 +1,4 @@
-app.controller('LoginController', function($scope) {
+app.controller('LoginCtrl', function($scope) {
     $scope.message = "LOGIN";
 
     /*

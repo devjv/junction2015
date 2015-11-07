@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<i class="fa fa-plane"></i> Choose your flight 
+	</div>
+	<div class="panel-body">
+		<form>
+			<select class="form-control input-lg" ng-model="flight">
+				<option>AY-8090</option>
+				<option>BH-8392</option>
+				<option>KK-1234</option>
+			</select>
+		</form>
+	</div>
+</div>
+<flight-box ng-repeat="n in [0,1,2,3,4]" flight="{code: 'AY-8090', departure: 'HEL', destination: 'STK', date: '11.10.2015', time: '13:34'}" button-action="true"></flight-box>
