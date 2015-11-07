@@ -1,4 +1,4 @@
-from flask import current_app, Flask
+from flask import current_app
 
 from flask.ext.script import Manager, Server
 

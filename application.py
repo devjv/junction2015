@@ -1,6 +1,9 @@
+import os
 from flask import Flask
+from assets import assets
 from db import db
 from app.views import api
+from flask.ext.assets import Environment, Bundle
 
 
 class Application(Flask):
@@ -13,3 +16,16 @@ class Application(Flask):
         self.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
         db.init_app(self)
         self.register_blueprint(api)
+
+        assets = Environment(self)
+        assets.load_path = [
+            os.path.join(os.path.dirname(__file__), 'bower_components'),
+            # os.path.join(os.path.dirname(__file__), 'bower_components'),
+        ]
+        assets.register(
+            'js_all',
+            Bundle(
+                '**/**.js',
+                output='js_all.js'
+            )
+        )
