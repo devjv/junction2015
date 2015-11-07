@@ -29,3 +29,5 @@ node_modules
 *.pyc
 .idea
 .DS_Store
+
+venv

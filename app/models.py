@@ -58,8 +58,32 @@ class Flight(db.Model):
 
 class Offer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(
+        db.Integer,
+        db.ForeignKey(User.id, ondelete='RESTRICT'),
+        nullable=False
+    )
+    flight = db.Column(
+        db.Integer,
+        db.ForeignKey(Flight.id, ondelete='RESTRICT'),
+        nullable=False
+    )
+
+
 
 
 class TradeRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    price = db.Column(db.Integer, nullable=False)
+    money = db.Column(db.Float, default=0)
+    requesting_offer = db.Column(db.Integer,
+        db.ForeignKey(Offer.id, ondelete='RESTRICT'),
+        nullable=False
+    )
+    responding_offer = db.Column(db.Integer,
+        db.ForeignKey(Offer.id, ondelete='RESTRICT'),
+        nullable=False
+    )
+    fulfilled = db.Column(db.Boolean, default=false)
+
+
+
