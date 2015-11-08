@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+import datetime
 from flask import Blueprint, request, jsonify, make_response, render_template
 from app import Flight, User, Offer
 from db import db
@@ -39,8 +40,7 @@ def offers_for_flight():
     if not flight_id:
         return jsonify({'error': 'Flight not found'})
     query = Offer.query.filter(
-        Offer.requested_flight ==
-        Flight.query.filter(Flight.id == flight_id)
+        Offer.requested_flight_id == flight_id
         # TODO: Suodatus käyttäjän mukaan
     )
     list = [
@@ -60,57 +60,19 @@ def users_offers():
     return jsonify({'result': list})
 
 
-
-
-# @api.route('/airports')
-# def airports():
-#     search = request.args.get('search', '')
-#     if not search:
-#         return jsonify({'error': 'search parameter required'})
-#     query = Airport.query.filter(
-#         db.or_(
-#             Airport.name.ilike('%{}%'.format(search)),
-#             # Airport.code.ilike('%{}%'.format(search))
-#         )
-#     )
-#     return jsonify({
-#         'result': [{
-#             'name': airport.name,
-#             'code': airport.code
-#         } for airport in query.limit(10)]}
-#     )
-#
-#     return str(query.count())
-#
-#
-# @api.route('/flights')
-# def flights():
-#     departure = request.args.get('departure', '')
-#     if not departure:
-#         return jsonify({'error': 'departure required'})
-#     destination = request.args.get('destination', '')
-#     if not destination:
-#         return jsonify({'error': 'destination required'})
-#     departure_airport = Airport.query.filter(
-#         Airport.code == departure
-#     ).first()
-#     if not departure_airport:
-#         return jsonify({'error': 'departure airport not found'})
-#     destination_airport = Airport.query.filter(
-#         Airport.code == destination
-#     ).first()
-#     if not destination_airport:
-#         return jsonify({'error': 'destination airport not found'})
-#
-#     query = Flight.query.filter(
-#         Flight.destination_airport == destination_airport,
-#         Flight.departure_airport == departure_airport
-#     )
-#     return jsonify({
-#         'result': [{
-#             'departure_time': str(flight.departure_time),
-#             'code': flight.code
-#         } for flight in query.limit(10)]}
-#     )
-#
-#     return 'SUCCESS'
+@api.route('/near_flights')
+def near_flight():
+    flight_id = request.args.get('flight_id', None, type=int)
+    flight = Flight.query.filter(
+        Flight.id == flight_id
+    ).one()
+    query = Flight.query.filter(
+        db.and_(
+            Flight.departure_time < datetime.timedelta(days=1) + flight.departure_time,
+            Flight.departure_time > datetime.timedelta(days=1) - flight.departure_time
+        )
+    )
+    list = [
+        format_flight(flight) for flight in query
+    ]
+    return jsonify({'result': list})

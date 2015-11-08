@@ -37,7 +37,7 @@ header {
     -webkit-transition: all 500ms;
 }
 .animation.ng-enter{
-    transform: translateY(-25%);
+    transform: translateY(-10%);
     opacity: 0;
 }
 .animation.ng-enter.ng-enter-active{
@@ -49,7 +49,7 @@ header {
     opacity: 1;
 }
 .animation.ng-leave.ng-leave-active{
-    transform: translateY(50%);
+    transform: translateY(75%);
     opacity: 0;
 }
 
