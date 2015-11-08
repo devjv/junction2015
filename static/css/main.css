@@ -60,10 +60,22 @@ div.flight-selection .dropdown {
 
 nav {
     position: absolute;
-    left: -1.7em;
     text-align: center;
     font-size: 3em;
     text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    nav {
+        left: -1.7em;
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        bottom: -1em;
+        left: 2em;
+    }
 }
 
 nav a {
