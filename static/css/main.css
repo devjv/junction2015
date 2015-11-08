@@ -13,6 +13,7 @@ body {
 .container {
     margin-top: 3em;
     max-width: 60em;
+    position: relative;
 }
 
 header {
@@ -56,5 +57,3 @@ header {
 div.flight-selection .dropdown {
     margin: 10px;
 }
-
-
