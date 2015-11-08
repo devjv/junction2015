@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 import datetime
-from flask import Blueprint, request, jsonify, make_response, render_template
+from flask import Flask, session, Blueprint, request, jsonify, make_response, render_template
 from app import Flight, User, Offer
 from db import db
 
@@ -21,6 +21,27 @@ def format_flight(flight):
         'departure_time': str(flight.departure_time),
         'code': flight.code
     }
+
+@api.route('/login', methods=['POST'])
+def login():
+    json_data = request.json
+    user = User.query.filter_by(email=json_data['email']).first()
+    if user and bcrypt.check_password_hash(
+            user.password, json_data['password']):
+        session['logged_in'] = True
+        status = True
+    else:
+        status = False
+    return jsonify({'result': status})
+
+
+@api.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return jsonify({'result': 'success'})
+
+
+
 
 
 @api.route('/flights')

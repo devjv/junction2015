@@ -3,16 +3,17 @@ html {
 }
 
 body {
-	background: url('/static/img/background.jpg');
-    height: 100%;
+	background: url('/static/img/background.png');
+    background-color: #137bd7;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .container {
     margin-top: 3em;
     max-width: 60em;
+    position: relative;
 }
 
 header {
@@ -57,4 +58,52 @@ div.flight-selection .dropdown {
     margin: 10px;
 }
 
+nav {
+    position: absolute;
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+}
 
+@media (min-width: 768px) {
+    nav {
+        left: -1.7em;
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        bottom: -1em;
+        left: 2em;
+    }
+}
+
+nav a {
+    display: block;
+    opacity: 0.5;
+    margin-bottom: 0.2em;
+    color: #fff;
+}
+
+nav span {
+    display: block;
+    font-size: 0.25em;
+    margin-top: -1.5em;
+    padding: 0.2em;
+}
+
+nav a.active {
+    opacity: 1;
+    color: #fff;
+}
+
+nav a:focus {
+    text-decoration: none;
+}
+
+nav a:hover, nav a:active, nav a:visited {
+    transform: scale(1.2);
+    color: #fff;
+    text-decoration: none;
+    opacity: 1;
+}

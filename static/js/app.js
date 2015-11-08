@@ -3,7 +3,10 @@ var app = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'static/home.html'
+    templateUrl: 'static/home.html',
+    controller: function($rootScope) {
+      $rootScope.currentPage = undefined;
+    }
   })
   .when('/login', {
     templateUrl: 'static/login.html',
@@ -11,7 +14,8 @@ app.config(function($routeProvider, $locationProvider) {
   })
   .when('/me', {
     templateUrl: 'static/my-offers.html',
-    controller: 'MyOffersCtrl'
+    controller: 'MyOffersCtrl',
+    controllerAs: 'myoffers'
   })
   .when('/add', {
     templateUrl: 'static/add-offers.html',
