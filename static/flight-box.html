@@ -3,7 +3,7 @@
 		<h4>
 			Flight {{ flight.code }}
 			<small>from <strong>{{ flight.departure }}</strong> to <strong>{{ flight.destination }}</strong></small>
-			<button ng-show="buttonAction" ng-click="buttonAction()" class="btn btn-lg pull-right">Trade<i class="fa fa-chevron-right"></i></button>
+			<button ng-show="buttonAction" ng-click="buttonAction()" class="btn pull-right">Trade<i class="fa fa-chevron-right"></i></button>
 		</h4>
 		<p><i class="fa fa-calendar"></i> {{ flight.departure_time | date:'dd.MM.yyyy' }} &bull; <i class="fa fa-clock-o"></i> {{ flight.departure_time | date:'HH:mm'}}</p>
 	</div>

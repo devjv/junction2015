@@ -96,6 +96,18 @@ nav a:hover, nav a:active, nav a:visited {
     opacity: 1;
 }
 
+div.errorpage img {
+    width: 30vw;
+}
+
+div.errorpage {
+    text-align: center;
+}
+
+div.errorpage h4 {
+    color: white;
+}
+
 button {
     background-color: #ffd54f;
 }
@@ -121,4 +133,7 @@ button i {
     div.animation {
         padding-bottom: 100px;
     }
+    div.errorpage img {
+    width: 80vw;
+}
 }
