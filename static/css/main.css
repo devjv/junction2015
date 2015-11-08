@@ -60,10 +60,10 @@ div.flight-selection .dropdown {
 
 nav {
     position: absolute;
-    left: -1.7em;
     text-align: center;
     font-size: 3em;
     text-transform: uppercase;
+    left: -1.7em;
 }
 
 nav a {
@@ -94,4 +94,27 @@ nav a:hover, nav a:active, nav a:visited {
     color: #fff;
     text-decoration: none;
     opacity: 1;
+}
+
+button {
+    background-color: #ffd54f;
+}
+button i {
+    margin-left: 1em;
+}
+
+@media (max-width: 767px) {
+    nav {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        background-color: #1465CF;
+    }
+    nav a {
+        display: inline-block;
+        margin: 0 2em;
+    }
 }

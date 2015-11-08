@@ -1,5 +1,5 @@
-<form><button ng-click="openDialog()" class="btn btn-success btn-lg btn-block">Add offer</button></form>
-<hr>
+<form><button class="btn btn-success btn-lg btn-block">Add offer</button></form>
+<br>
 
 <flight-box ng-repeat="offer in myoffers.myoffers" flight="offer"></flight-box>
 <div class="alert alert-warning" ng-if="!myoffers.myoffers" role="alert">You don't have any offers yet!</div>

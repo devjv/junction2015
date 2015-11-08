@@ -1,10 +1,11 @@
 # -*- encoding: utf-8 -*-
 import datetime
-from flask import Blueprint, request, jsonify, make_response, render_template
+from flask import Flask, session, Blueprint, request, jsonify, make_response, render_template
 from app import Flight, User, Offer
 from db import db
 
 api = Blueprint('api', __name__, url_prefix='/api')
+user = Blueprint('user', __name__, url_prefix='/user')
 others = Blueprint('others', __name__)
 
 
@@ -18,8 +19,30 @@ def format_flight(flight):
         'id': flight.id,
         'destination': flight.destination,
         'departure': flight.departure,
-        'departure_time': str(flight.departure_time)
+        'departure_time': str(flight.departure_time),
+        'code': flight.code
     }
+
+@user.route('/login', methods=['POST'])
+def login():
+    json_data = request.json
+    user = User.query.filter_by(email=json_data['email']).first()
+    if user and bcrypt.check_password_hash(
+            user.password, json_data['password']):
+        session['logged_in'] = True
+        status = True
+    else:
+        status = False
+    return jsonify({'result': status})
+
+
+@user.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return jsonify({'result': 'success'})
+
+
+
 
 
 @api.route('/flights')
@@ -44,7 +67,11 @@ def offers_for_flight():
         # TODO: Suodatus käyttäjän mukaan
     )
     list = [
-        format_flight(offer.offered_flight) for offer in query
+        {
+            'offered_flight': format_flight(offer.offered_flight),
+            'id': offer.id
+        }
+        for offer in query
     ]
     return jsonify({'result': list})
 
@@ -55,7 +82,11 @@ def users_offers():
         # TODO: Suodatus käyttäjän mukaan
     )
     list = [
-        format_flight(offer.offered_flight) for offer in query
+        {
+            'offered_flight': format_flight(offer.offered_flight),
+            'id': offer.id
+        }
+        for offer in query
     ]
     return jsonify({'result': list})
 
@@ -63,13 +94,20 @@ def users_offers():
 @api.route('/near_flights')
 def near_flight():
     flight_id = request.args.get('flight_id', None, type=int)
+    if not flight_id:
+        return jsonify({'error': 'flight_id required'})
     flight = Flight.query.filter(
         Flight.id == flight_id
-    ).one()
+    ).first()
+    if not flight:
+        return jsonify({'error': 'Flight not found for id'})
     query = Flight.query.filter(
         db.and_(
-            Flight.departure_time < datetime.timedelta(days=1) + flight.departure_time,
-            Flight.departure_time > datetime.timedelta(days=1) - flight.departure_time
+            Flight.departure_time <
+            flight.departure_time + datetime.timedelta(days=1),
+            Flight.departure_time >
+            flight.departure_time - datetime.timedelta(days=1),
+            Flight.id != flight_id
         )
     )
     list = [

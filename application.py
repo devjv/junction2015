@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from assets import assets
 from db import db
-from app.views import api, others
+from app.views import api, others, user
 from flask.ext.assets import Environment, Bundle
 
 
@@ -16,6 +16,7 @@ class Application(Flask):
         self.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
         db.init_app(self)
         self.register_blueprint(api)
+        self.register_blueprint(user)
         self.register_blueprint(others)
 
         assets = Environment(self)

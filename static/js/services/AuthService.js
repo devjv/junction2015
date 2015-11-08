@@ -8,13 +8,14 @@ angular.module('myApp').factory('AuthService',
 		return ({
 			login: login,
 			logout: logout,
-			register: register
+			// register: register,
+			isLoggedIn: isLoggedIn
 		});
 
 		function login(username, password) {
 			var deferred = $q.defer();
 
-			$http.post('/login', {
+			$http.post('/user/login', {
 				username: username, password: password
 			})
 			.success(function(data, status) {
@@ -37,7 +38,7 @@ angular.module('myApp').factory('AuthService',
 		function logout() {
 			var deferred = $q.defer();
 
-			$http.get('/logout')
+			$http.get('/user/logout')
 			.success(function(data) {
 				userStatus = false;
 				user = undefined;
@@ -51,6 +52,10 @@ angular.module('myApp').factory('AuthService',
 			return deferred.promise;
 		}
 
+
+		// Registering is disabled, because we assume that the users are
+		// registered and authenticated via external systems
+		// by the airline companies
 		function register(username, password) {
 			var deferred = $q.defer();
 
@@ -70,7 +75,12 @@ angular.module('myApp').factory('AuthService',
 			});
 
 			return deferred.promise;
-		} 
+		}
+
+		function isLoggedIn() {
+			return !!userStatus
+		}
+
 
 
 
