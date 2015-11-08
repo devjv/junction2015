@@ -4,10 +4,9 @@ html {
 
 body {
 	background: url('/static/img/background.png');
-    height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .container {
@@ -85,8 +84,13 @@ nav a.active {
     color: #fff;
 }
 
-nav a:hover, nav a:active {
+nav a:focus {
+    text-decoration: none;
+}
+
+nav a:hover, nav a:active, nav a:visited {
     transform: scale(1.2);
     color: #fff;
     text-decoration: none;
+    opacity: 1;
 }
