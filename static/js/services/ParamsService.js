@@ -5,7 +5,8 @@ angular.module('myApp').factory('ParamsService', ['$http',
 			getFlightsForUser: getFlightsForUser,
 			getOffersForFlight: getOffersForFlight,
 			getSimilarFlights: getSimilarFlights,
-			getUsersOffers: getUsersOffers
+			getUsersOffers: getUsersOffers,
+			createNewOffer: createNewOffer
 		});
 
 
@@ -47,31 +48,31 @@ angular.module('myApp').factory('ParamsService', ['$http',
 		}
 
 
-		// function createNewOffer(flight) {
-		// 	return $http({
-		// 		url: '/createnewoffer',
-		// 		method: "POST",
-		// 		params: {
-		// 			departure: flight.departure,
-		// 			arrival: flight.arrival
-		// 			// Get back to this, unable to post a list of flights as query params
-		// 		}
-		// 	});
-		// }
+		function createNewOffer(offeredFlight, nearFlights, prices) {
+			return $http({
+				url: '/createnewoffer',
+				method: "POST",
+				params: {
+					flight_id: offeredFlight.id,
+					near_flights: nearFlights,
+					prices: prices
+				}
+			});
+		}
 
-		// function acceptOffer(offer) {
-		// 	var matchingFlight;
-		// 	for (int i = 0; i < user.flights.size()) {
-		// 		if (user.flights[i].id == offer)
-		// 	}
-		// 	return $http({
-		// 		url: /acceptoffer',
-		// 		method: "POST",
-		// 		params: {
+		function acceptOffer(offer) {
+			var matchingFlight;
+			for (int i = 0; i < user.flights.size()) {
+				if (user.flights[i].id == offer)
+			}
+			return $http({
+				url: /acceptoffer',
+				method: "POST",
+				params: {
 
-		// 		}
-		// 	});
-		// }
+				}
+			});
+		}
 
 
 

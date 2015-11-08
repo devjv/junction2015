@@ -27,7 +27,7 @@ class Flight(db.Model):
         db.Unicode(255),
         nullable=False
     )
-    departure_time = db.Column(db.DateTime)
+    departure_time = db.Column(db.Date)
     # arrival_time = db.Column(db.Date)
     code = db.Column(db.String(255))
     users = db.relationship('User', secondary=users_flight)
