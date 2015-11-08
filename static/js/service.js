@@ -1,4 +1,4 @@
-angular.module('myApp').factory('DataService', ['$q', '$http', 
+angular.module('myApp').factory('paramsService', ['$http', 
 	function ($http) {
 
 		return ({
@@ -10,7 +10,7 @@ angular.module('myApp').factory('DataService', ['$q', '$http',
 
 
 		function getFlightsForUser() {
-			$http({
+			return $http({
 				url: '/flights',
 				method: "GET"
 			});
@@ -18,10 +18,10 @@ angular.module('myApp').factory('DataService', ['$q', '$http',
 
 
 		function getOffersForFlight(flight) {
-			$http({
+			return $http({
 				url: '/offers_for_flight',
 				method: "GET",
-				data: {
+				params: {
 					flight_id: flight.id
 				}
 			});
@@ -30,48 +30,48 @@ angular.module('myApp').factory('DataService', ['$q', '$http',
 		
 
 		function getUsersOffers() {
-			$http({
+			return $http({
 				url: '/users_offers',
 				method: "GET"
 			});
 		}
 
 		function getSimilarFlights(flight) {
-			$http({
+			return $http({
 				url: '/near_flights',
 				method: "GET",
-				data: {
+				params: {
 					flight_id: flight.id
 				}
 			});
 		}
 
 
-		function createNewOffer(flight) {
-			$http({
-				url: '/createnewoffer',
-				method: "POST",
-				data: {
-					departure: flight.departure,
-					arrival: flight.arrival
-					// Get back to this, unable to post a list of flights as query params
-				}
-			});
-		}
+		// function createNewOffer(flight) {
+		// 	return $http({
+		// 		url: '/createnewoffer',
+		// 		method: "POST",
+		// 		params: {
+		// 			departure: flight.departure,
+		// 			arrival: flight.arrival
+		// 			// Get back to this, unable to post a list of flights as query params
+		// 		}
+		// 	});
+		// }
 
-		function acceptOffer(offer) {
-			var matchingFlight;
-			for (int i = 0; i < user.flights.size()) {
-				if (user.flights[i].id == offer.)
-			}
-			$http({
-				url: /acceptoffer',
-				method: "POST",
-				data: {
+		// function acceptOffer(offer) {
+		// 	var matchingFlight;
+		// 	for (int i = 0; i < user.flights.size()) {
+		// 		if (user.flights[i].id == offer)
+		// 	}
+		// 	return $http({
+		// 		url: /acceptoffer',
+		// 		method: "POST",
+		// 		params: {
 
-				}
-			});
-		}
+		// 		}
+		// 	});
+		// }
 
 
 
