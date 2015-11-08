@@ -34,7 +34,7 @@ def flights():
     return jsonify({'result': list})
 
 
-@api.route('/offers_for_users')
+@api.route('/offers_for_flight')
 def offers_for_flight():
     flight_id = request.args.get('flight_id', None, type=int)
     if not flight_id:
