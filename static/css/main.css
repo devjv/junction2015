@@ -4,6 +4,7 @@ html {
 
 body {
 	background: url('/static/img/background.png');
+    background-color: #137bd7;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
