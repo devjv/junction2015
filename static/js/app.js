@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', 'ngAnimate']);
+var app = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -17,16 +17,12 @@ app.config(function($routeProvider, $locationProvider) {
     controller: 'MyOffersCtrl',
     controllerAs: 'myoffers'
   })
-  .when('/add', {
-    templateUrl: 'static/add-offers.html',
-    controller: 'AddOffersCtrl'
-  })
   .when('/find', {
     templateUrl: 'static/find-offers.html',
     controller: 'FindOffersCtrl'
   })
   .otherwise({
-    template: 'page not found'
+    templateUrl: 'static/404.html'
   });
 
   $locationProvider.html5Mode(true);
