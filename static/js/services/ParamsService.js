@@ -50,7 +50,7 @@ angular.module('myApp').factory('ParamsService', ['$http',
 
 		function createNewOffer(offeredFlight, nearFlights, prices) {
 			return $http({
-				url: '/createnewoffer',
+				url: '/api/createnewoffer',
 				method: "POST",
 				params: {
 					flight_id: offeredFlight.id,
@@ -61,15 +61,11 @@ angular.module('myApp').factory('ParamsService', ['$http',
 		}
 
 		function acceptOffer(offer) {
-			var matchingFlight;
-			for (int i = 0; i < user.flights.size()) {
-				if (user.flights[i].id == offer)
-			}
 			return $http({
-				url: /acceptoffer',
+				url: '/acceptoffer',
 				method: "POST",
 				params: {
-
+					offer_id: offer.id
 				}
 			});
 		}
