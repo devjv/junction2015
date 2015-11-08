@@ -96,6 +96,13 @@ nav a:hover, nav a:active, nav a:visited {
     opacity: 1;
 }
 
+button {
+    background-color: #ffd54f;
+}
+button i {
+    margin-left: 1em;
+}
+
 @media (max-width: 767px) {
     nav {
         bottom: 0;
