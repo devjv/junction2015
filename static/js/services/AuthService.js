@@ -8,7 +8,8 @@ angular.module('myApp').factory('AuthService',
 		return ({
 			login: login,
 			logout: logout,
-			register: register
+			register: register,
+			isLoggedIn: isLoggedIn
 		});
 
 		function login(username, password) {
@@ -70,6 +71,10 @@ angular.module('myApp').factory('AuthService',
 			});
 
 			return deferred.promise;
+		}
+
+		function isLoggedIn() {
+			return !!userStatus
 		}
 
 
