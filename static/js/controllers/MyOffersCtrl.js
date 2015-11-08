@@ -1,6 +1,6 @@
-app.controller('MyOffersCtrl', ['$scope', '$rootScope','ParamsService',
+app.controller('MyOffersCtrl', ['$scope', '$rootScope', '$uibModal', 'ParamsService',
 
-    function($scope, $rootScope, ParamsService) {
+    function($scope, $rootScope, $uibModal, ParamsService) {
         self = this;
         self.ordered_flights = [];
 
@@ -16,5 +16,13 @@ app.controller('MyOffersCtrl', ['$scope', '$rootScope','ParamsService',
 
             }
         );
+
+        $scope.openDialog = function() {
+            console.log($uibModal);
+            $uibModal.open({
+                templateUrl: 'static/add-offers.html',
+                controller: 'AddOffersCtrl'
+            });
+        };
     }
 ]);
