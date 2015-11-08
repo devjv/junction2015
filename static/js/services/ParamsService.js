@@ -11,7 +11,7 @@ angular.module('myApp').factory('ParamsService', ['$http',
 
 		function getFlightsForUser() {
 			return $http({
-				url: '/flights',
+				url: '/api/flights',
 				method: "GET"
 			});
 		}
@@ -19,7 +19,7 @@ angular.module('myApp').factory('ParamsService', ['$http',
 
 		function getOffersForFlight(flight) {
 			return $http({
-				url: '/offers_for_flight',
+				url: '/api/offers_for_flight',
 				method: "GET",
 				params: {
 					flight_id: flight.id
@@ -31,14 +31,14 @@ angular.module('myApp').factory('ParamsService', ['$http',
 
 		function getUsersOffers() {
 			return $http({
-				url: '/users_offers',
+				url: '/api/users_offers',
 				method: "GET"
 			});
 		}
 
 		function getSimilarFlights(flight) {
 			return $http({
-				url: '/near_flights',
+				url: '/api/near_flights',
 				method: "GET",
 				params: {
 					flight_id: flight.id
