@@ -16,6 +16,7 @@ class Application(Flask):
         self.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
         db.init_app(self)
         self.register_blueprint(api)
+        self.register_blueprint(user)
         self.register_blueprint(others)
 
         assets = Environment(self)

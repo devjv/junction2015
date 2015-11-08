@@ -5,6 +5,7 @@ from app import Flight, User, Offer
 from db import db
 
 api = Blueprint('api', __name__, url_prefix='/api')
+user = Blueprint('user', __name__, url_prefix='/user')
 others = Blueprint('others', __name__)
 
 
@@ -21,7 +22,7 @@ def format_flight(flight):
         'departure_time': str(flight.departure_time)
     }
 
-@api.route('/login', methods=['POST'])
+@user.route('/login', methods=['POST'])
 def login():
     json_data = request.json
     user = User.query.filter_by(email=json_data['email']).first()
@@ -34,7 +35,7 @@ def login():
     return jsonify({'result': status})
 
 
-@api.route('/logout')
+@user.route('/logout')
 def logout():
     session.pop('logged_in', None)
     return jsonify({'result': 'success'})
