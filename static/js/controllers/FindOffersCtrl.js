@@ -3,7 +3,6 @@ app.controller('FindOffersCtrl', ['$scope', '$rootScope', 'ParamsService',
     $scope.flight;
 
     $scope.flightChanged = function() {
-        console.log("flightChanged event");
         console.log($scope.flight);
     };
 
