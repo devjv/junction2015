@@ -1,69 +1,51 @@
 angular.module('myApp').factory('DataService', ['$q', '$http', 
 	function ($http) {
 
-		// var user = AuthService.getUser();
-		var flight1 = {code: "asd123", departure: "Helsinki-Vantaa", arrival: "Heathrow", time: "17:00"}
-		var user = {
-			id: 12352376,
-			flights: [			
-				flight1,
-				flight1
-			],
-			email: "testuser@testemail.test"
-		}
-
 		return ({
-			getFlightsForPassenger: getFlightsForPassenger,
+			getFlightsForUser: getFlightsForUser,
+			getOffersForFlight: getOffersForFlight,
 			getSimilarFlights: getSimilarFlights,
-			getUsersOffers: getUsersOffers,
-			getOffersForFlight: getOffersForFlight
-		})
+			getUsersOffers: getUsersOffers
+		});
 
 
 		function getFlightsForUser() {
-			var user = user; //Placeholder
 			$http({
-				url: '/getflightsforuser',
-				method: "GET",
-				data: {
-					user_id: user.id,
-				}
+				url: '/flights',
+				method: "GET"
 			});
 		}
 
-
-		function getSimilarFlights(flight) {
-			$http({
-				url: '/getsimilarflights',
-				method: "GET",
-				data: {
-					departure: flight.departure,
-					arrival: flight.arrival,
-					time: flight.time
-				}
-			});
-		}
-
-		function getUsersOffers() {
-			$http({
-				url: '/getflightsforuser',
-				method: "GET",
-				data: {
-					user_id: user.id
-				}
-			});
-		}
 
 		function getOffersForFlight(flight) {
 			$http({
-				url: '/getflightsforuser',
+				url: '/offers_for_flight',
 				method: "GET",
 				data: {
-					departure: flight.departure,
-					arrival: flight.arrival
+					flight_id: flight.id
 				}
 			});
 		}
+
+		
+
+		function getUsersOffers() {
+			$http({
+				url: '/users_offers',
+				method: "GET"
+			});
+		}
+
+		function getSimilarFlights(flight) {
+			$http({
+				url: '/near_flights',
+				method: "GET",
+				data: {
+					flight_id: flight.id
+				}
+			});
+		}
+
 
 		function createNewOffer(flight) {
 			$http({
@@ -71,7 +53,7 @@ angular.module('myApp').factory('DataService', ['$q', '$http',
 				method: "POST",
 				data: {
 					departure: flight.departure,
-					arrival: flight.arrival,
+					arrival: flight.arrival
 					// Get back to this, unable to post a list of flights as query params
 				}
 			});
@@ -88,7 +70,7 @@ angular.module('myApp').factory('DataService', ['$q', '$http',
 				data: {
 
 				}
-			})
+			});
 		}
 
 
