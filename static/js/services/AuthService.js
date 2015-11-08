@@ -70,7 +70,8 @@ angular.module('myApp').factory('AuthService',
 			});
 
 			return deferred.promise;
-		} 
+		}
+
 
 
 
