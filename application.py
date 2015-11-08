@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from assets import assets
 from db import db
-from app.views import api, others
+from app.views import api, others, user
 from flask.ext.assets import Environment, Bundle
 
 
