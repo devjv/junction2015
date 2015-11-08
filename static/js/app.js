@@ -11,7 +11,8 @@ app.config(function($routeProvider, $locationProvider) {
   })
   .when('/me', {
     templateUrl: 'static/my-offers.html',
-    controller: 'MyOffersCtrl'
+    controller: 'MyOffersCtrl',
+    controllerAs: 'myoffers'
   })
   .when('/add', {
     templateUrl: 'static/add-offers.html',
