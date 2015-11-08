@@ -1,10 +1,10 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<i class="fa fa-plane"></i> Choose your flight 
+		<i class="fa fa-plane"></i> Choose your flight
 	</div>
 	<div class="panel-body">
 		<form>
-			<select class="form-control input-lg" ng-model="flight">
+			<select class="form-control input-lg" ng-change="flightChanged()" ng-model="flight">
 				<option>AY-8090</option>
 				<option>BH-8392</option>
 				<option>KK-1234</option>
