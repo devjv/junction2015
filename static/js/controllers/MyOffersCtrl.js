@@ -1,9 +1,20 @@
-app.controller('MyOffersCtrl', function($scope, $rootScope) {
-    this.myoffers = [
-        {'destination': 'Amsterdam', 'date': '2015-11-9', 'departure': '15:00', 'code': 'AY-8090 '},
-        {'destination': 'Sydney', 'date': '2015-11-23', 'departure': '14:00', 'code': 'AY-8090 '},
-        {'destination': 'London', 'date': '2015-12-29', 'departure': '18:00', 'code': 'AY-8090 '},
-    ];
-    // this.myoffers = [];
-    $rootScope.currentPage = 'me';
-});
+app.controller('MyOffersCtrl', ['$scope', '$rootScope','ParamsService',
+
+    function($scope, $rootScope, ParamsService) {
+        self = this;
+        self.ordered_flights = [];
+
+        $rootScope.currentPage = 'me';
+
+        ParamsService.getUsersOffers().then(
+            function(respose) {
+                self.ordered_flights = respose.data.result.map(function(flight) {
+                    flight.offered_flight.departure_time = new Date(flight.offered_flight.departure_time);
+                    return flight;
+                });
+                console.log(self.ordered_flights);
+
+            }
+        );
+    }
+]);
