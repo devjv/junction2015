@@ -3,17 +3,11 @@ html {
 }
 
 body {
-	background: url('/static/img/background.jpg');
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcd3fe+0,90b7fe+45,5d96ff+100 */
-
-    background: -webkit-linear-gradient(#80deea, #5c6bc0);
-    background: -o-linear-gradient(#80deea, #5c6bc0);
-    background: -moz-linear-gradient(#80deea, #5c6bc0);
-    background: linear-gradient(#80deea, #5c6bc0);
-    height: 100%;
+	background: url('/static/img/background.png');
+    background-color: #137bd7;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .container {
@@ -62,4 +56,42 @@ header {
 
 div.flight-selection .dropdown {
     margin: 10px;
+}
+
+nav {
+    position: absolute;
+    left: -1.7em;
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+nav a {
+    display: block;
+    opacity: 0.5;
+    margin-bottom: 0.2em;
+    color: #fff;
+}
+
+nav span {
+    display: block;
+    font-size: 0.25em;
+    margin-top: -1.5em;
+    padding: 0.2em;
+}
+
+nav a.active {
+    opacity: 1;
+    color: #fff;
+}
+
+nav a:focus {
+    text-decoration: none;
+}
+
+nav a:hover, nav a:active, nav a:visited {
+    transform: scale(1.2);
+    color: #fff;
+    text-decoration: none;
+    opacity: 1;
 }
