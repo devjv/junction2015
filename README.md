@@ -10,3 +10,4 @@ Install:
  3. pip install -r requirements-dev.txt
  4. python manage.py runserver
 
+ http://gfycat.com/ImperfectPracticalGreendarnerdragonfly
