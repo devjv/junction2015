@@ -1,4 +1,4 @@
-angular.module('myApp').factory('paramsService', ['$http', 
+angular.module('myApp').factory('ParamsService', ['$http', 
 	function ($http) {
 
 		return ({
