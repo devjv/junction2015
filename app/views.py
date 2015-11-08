@@ -103,9 +103,10 @@ def near_flight():
     query = Flight.query.filter(
         db.and_(
             Flight.departure_time <
-            datetime.timedelta(days=1) + flight.departure_time,
+            flight.departure_time + datetime.timedelta(days=1),
             Flight.departure_time >
-            datetime.timedelta(days=1) - flight.departure_time
+            flight.departure_time - datetime.timedelta(days=1),
+            Flight.id != flight_id
         )
     )
     list = [
