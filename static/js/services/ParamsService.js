@@ -6,7 +6,8 @@ angular.module('myApp').factory('ParamsService', ['$http',
 			getOffersForFlight: getOffersForFlight,
 			getSimilarFlights: getSimilarFlights,
 			getUsersOffers: getUsersOffers,
-			createNewOffer: createNewOffer
+			createNewOffer: createNewOffer,
+			acceptOffer: acceptOffer
 		});
 
 
