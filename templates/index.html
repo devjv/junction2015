@@ -32,6 +32,16 @@
 				<img src="static/img/flexifly_logo.png" width="160" alt="Flexifly">
 			</a>
 		</header>
+		<nav>
+			<a href="/find" ng-class="{ active: currentPage == 'find' }">
+				<i class="fa fa-plane"></i>
+				<span>Find Flights</span>
+			</a>
+			<a href="/me" ng-class="{ active: currentPage == 'me' }">
+				<i class="fa fa-ticket"></i>
+				<span>My Orders</span>
+			</a>
+		</nav>
 		<div class="animation-container">
 			<div ng-view class="animation"></div>
 		</div>
