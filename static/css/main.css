@@ -100,7 +100,11 @@ div.errorpage img {
     width: 30vw;
 }
 
-div.errorpage h2 {
+div.errorpage {
+    text-align: center;
+}
+
+div.errorpage h4 {
     color: white;
 }
 
