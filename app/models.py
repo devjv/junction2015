@@ -1,4 +1,5 @@
 from sqlalchemy.orm import backref
+from flask.ext.login import UserMixin
 from db import db
 
 
@@ -10,7 +11,7 @@ users_flight = db.Table(
 )
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True)
     flights = db.relationship('Flight', secondary=users_flight)
@@ -27,7 +28,7 @@ class Flight(db.Model):
         db.Unicode(255),
         nullable=False
     )
-    departure_time = db.Column(db.DateTime)
+    departure_time = db.Column(db.Date)
     # arrival_time = db.Column(db.Date)
     code = db.Column(db.String(255))
     users = db.relationship('User', secondary=users_flight)
