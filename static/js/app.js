@@ -22,7 +22,7 @@ app.config(function($routeProvider, $locationProvider) {
     controller: 'FindOffersCtrl'
   })
   .otherwise({
-    template: 'page not found'
+    templateUrl: 'static/404.html'
   });
 
   $locationProvider.html5Mode(true);
